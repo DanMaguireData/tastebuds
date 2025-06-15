@@ -16,12 +16,12 @@ export default function TabLayout() {
         },
       }}>
       <Tabs.Screen
-        name="index"
+        name="home"
         options={{
           title: 'Home',
           tabBarIcon: ({ color, focused }) => (
             <Ionicons
-              name={focused ? 'home-sharp' : 'home-outline'}
+              name={focused ? 'restaurant' : 'restaurant-outline'}
               color={color}
               size={24}
             />
@@ -29,13 +29,43 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="about"
+        name="recipe-book"
         options={{
-          title: 'About',
+          title: 'Recipes',
           tabBarIcon: ({ color, focused }) => (
             <Ionicons
               name={
-                focused ? 'information-circle' : 'information-circle-outline'
+                focused ? 'book' : 'book-outline'
+              }
+              color={color}
+              size={24}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="shopping-list"
+        options={{
+          title: 'Shopping',
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons
+              name={
+                focused ? 'bag' : 'bag-outline'
+              }
+              color={color}
+              size={24}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: 'Profile',
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons
+              name={
+                focused ? 'person' : 'person-outline'
               }
               color={color}
               size={24}
