@@ -1,11 +1,11 @@
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet } from "react-native";
 
 export default function Home() {
   return (
     <View style={styles.container}>
       <View style={styles.container}>
-            <Text style={styles.text}>Home screen</Text>
-          </View>
+        <Text style={styles.text}>Home screen</Text>
+      </View>
     </View>
   );
 }
@@ -13,16 +13,16 @@ export default function Home() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#25292e',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#25292e",
+    alignItems: "center",
+    justifyContent: "center",
   },
   text: {
-    color: '#fff',
+    color: "#fff",
   },
   button: {
     fontSize: 20,
-    textDecorationLine: 'underline',
-    color: '#fff',
+    textDecorationLine: "underline",
+    color: "#fff",
   },
 });
