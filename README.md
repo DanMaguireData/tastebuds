@@ -1,50 +1,78 @@
-# Welcome to your Expo app 👋
+# 🍳 Tastebuds
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Your personal AI sous-chef for discovering, creating, and organizing recipes.
 
-## Get started
+![Status](https://img.shields.io/badge/status-in%20progress-blue)
 
-1. Install dependencies
+## 📖 About The Project
 
-   ```bash
-   npm install
-   ```
+Tastebuds is a mobile app born from a passion for cooking and a desire to leverage AI to make the kitchen experience more creative and less stressful. Current AI chat tools are great for generating recipes, but they lack the structure, storage, and display features needed for a real cooking workflow.
 
-2. Start the app
+This app aims to solve that by providing a dedicated platform to:
+*   **Reduce decision fatigue** by suggesting what to cook.
+*   **Minimize food waste** by creating recipes from ingredients you already have.
+*   **Build culinary confidence** with an easy-to-use, AI-powered cooking partner.
 
-   ```bash
-   npx expo start
-   ```
+## ✨ Core Features
 
-In the output, you'll find options to open the app in a
+*   🤖 **AI Recipe Generation:** A conversational interface to request recipes by ingredients, cuisine, dietary needs, and more.
+*   📚 **Digital Recipe Book:** A personal library to save, search, and edit your favorite recipes.
+*   🛒 **Smart Shopping List:** Automatically create a consolidated shopping list from the ingredients in your chosen recipes.
+*   👤 **User Personalization:** Set your dietary preferences to ensure all AI suggestions are tailored to you.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## 🛠️ Tech Stack
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+This project is built with a modern, cross-platform stack:
 
-## Get a fresh project
+*   **Frontend:** React Native (with Expo)
+*   **Backend & Database:** Firebase (Firestore, Authentication, Storage)
+*   **AI Integration:** OpenAI API
 
-When you're ready, run:
+## 🏁 Getting Started
 
-```bash
-npm run reset-project
-```
+To get a local copy up and running, follow these simple steps.
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### Prerequisites
 
-## Learn more
+*   Node.js (v18 or later)
+*   npm or yarn
+*   [Expo CLI](https://docs.expo.dev/get-started/installation/)
 
-To learn more about developing your project with Expo, look at the following resources:
+### Installation
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+1.  **Clone the repository:**
+    ```sh
+    git clone https://github.com/[YOUR_USERNAME]/tastebuds.git
+    ```
 
-## Join the community
+2.  **Navigate to the project directory:**
+    ```sh
+    cd tastebuds
+    ```
 
-Join our community of developers creating universal apps.
+3.  **Install NPM packages:**
+    ```sh
+    npm install
+    ```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+4.  **Set up environment variables:**
+    You will need to create a `.env` file in the root of the project to store your Firebase and OpenAI API keys.
+
+5.  **Run the application:**
+    ```sh
+    npx expo start
+    ```
+    This will launch the Metro bundler. You can then run the app on a simulator or on a physical device using the Expo Go app.
+
+## 🗺️ Project Roadmap
+
+This is an active project. Key features planned for development include:
+
+*   [ ] Real-time AI response streaming
+*   [ ] Offline-first architecture for recipe book access
+*   [ ] Image recognition for scanning ingredients
+*   [ ] Export functionality (PDF, social sharing)
+
+## 📜 License
+
+Distributed under the MIT License. See `LICENSE` for more information.
