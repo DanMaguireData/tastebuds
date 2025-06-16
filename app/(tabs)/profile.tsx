@@ -1,21 +1,19 @@
-import { Text, View, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
+import { Container } from "@/components/layout/Container";
+import { AppText } from "@/components/common/AppText";
+
 
 export default function Profile() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Profile Screen</Text>
-    </View>
+   <Container style={styles.container}>
+         <AppText variant="h1" color="primary">Profile Screen</AppText>
+       </Container>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#25292e",
     justifyContent: "center",
     alignItems: "center",
-  },
-  text: {
-    color: "#fff",
   },
 });

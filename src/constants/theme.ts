@@ -1,3 +1,5 @@
+import { TextStyle } from "react-native";
+
 export type ThemeColors = {
   primary: string;
   secondary: string;
@@ -71,3 +73,38 @@ export const spacing = {
 export const iconSizes = {
   tabBar: 24,
 };
+
+export const textVariants = {
+  h1: {
+    fontFamily: typography.fontFamily.bold,
+    fontSize: typography.fontSizes.xxl, 
+    lineHeight: typography.fontSizes.xxl * typography.lineHeight.tight,
+  } as TextStyle,
+  h2: {
+    fontFamily: typography.fontFamily.bold,
+    fontSize: typography.fontSizes.xl, 
+    lineHeight: typography.fontSizes.xl * typography.lineHeight.tight, 
+  } as TextStyle,
+  h3: {
+    fontFamily: typography.fontFamily.bold,
+    fontSize: typography.fontSizes.lg, 
+    lineHeight: typography.fontSizes.lg * typography.lineHeight.tight, 
+  } as TextStyle,
+  body: {
+    fontFamily: typography.fontFamily.medium,
+    fontSize: typography.fontSizes.md, 
+    lineHeight: typography.fontSizes.md * typography.lineHeight.normal, 
+  } as TextStyle,
+  caption: {
+    fontFamily: typography.fontFamily.light,
+    fontSize: typography.fontSizes.sm, 
+    lineHeight: typography.fontSizes.sm * typography.lineHeight.normal, 
+  } as TextStyle,
+  button: {
+    fontFamily: typography.fontFamily.bold,
+    fontSize: typography.fontSizes.md,
+    textAlign: "center",
+  } as TextStyle,
+};
+
+export type TextVariant = keyof typeof textVariants;

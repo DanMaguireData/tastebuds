@@ -1,32 +1,34 @@
-import { Text, StyleSheet } from "react-native";
+import {StyleSheet } from "react-native";
 import { Container } from "@/components/layout/Container";
 import { Card } from "@/components/layout/Card";
 import { Spacer } from "@/components/layout/Spacer";
+import { AppText } from "@/components/common/AppText";
 import { useTheme } from "@/hooks/useTheme";
+
 import { typography } from "@/constants/theme";
 
 export default function Home() {
   const { theme } = useTheme();
   return (
     <Container>
-      <Text style={[styles.title, { color: theme.textPrimary }]}>
+      <AppText variant="h1" color="primary">
         Welcome to My App!
-      </Text>
+      </AppText>
       <Spacer size="lg" />
       <Card>
-        <Text style={[styles.cardTitle, { color: theme.textPrimary }]}>
+        <AppText variant="h2" color="textPrimary">
           Daily Recipe Idea
-        </Text>
+        </AppText>
         <Spacer size="sm" />
-        <Text style={{ color: theme.textSecondary }}>
+        <AppText variant="body" color="textSecondary">
           How about a delicious Chicken Tikka Masala today?
-        </Text>
+        </AppText>
       </Card>
       <Spacer size="md" />
       <Card padding="xl">
-        <Text style={{ color: theme.textPrimary }}>
+        <AppText variant="body" color="textPrimary">
           This card has extra large padding inside!
-        </Text>
+        </AppText>
       </Card>
       <Spacer size="xl" />
     </Container>
