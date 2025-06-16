@@ -1,6 +1,6 @@
 import React from "react";
 import { View, StyleSheet, ViewStyle, ScrollView } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { SafeAreaView, Edge } from "react-native-safe-area-context";
 import { useTheme } from "@/hooks/useTheme";
 import { spacing } from "@/constants/theme";
 
@@ -9,6 +9,7 @@ interface ContainerProps {
   style?: ViewStyle; // Allow custom styles to be passed
   scrollable?: boolean; // Option to make the container scrollable
   disableHorizontalPadding?: boolean; // Option to remove horizontal padding for full-width elements
+   edges?: readonly Edge[]
 }
 
 export function Container({
@@ -16,6 +17,7 @@ export function Container({
   style,
   scrollable = false,
   disableHorizontalPadding = false,
+  edges,
 }: ContainerProps) {
   const { theme } = useTheme();
 
@@ -28,6 +30,7 @@ export function Container({
 
   return (
     <SafeAreaView
+      edges={edges}
       style={[
         styles.safeArea,
         { backgroundColor: theme.background },

@@ -10,7 +10,7 @@ import { typography } from "@/constants/theme";
 export default function Home() {
   const { theme } = useTheme();
   return (
-    <Container>
+    <Container edges={['bottom', 'left', 'right']}>
       <AppText variant="h1" color="primary">
         Welcome to My App!
       </AppText>

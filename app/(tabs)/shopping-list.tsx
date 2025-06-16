@@ -4,7 +4,7 @@ import { AppText } from "@/components/common/AppText";
 
 export default function ShoppingList() {
   return (
-    <Container style={styles.container}>
+    <Container style={styles.container} edges={['bottom', 'left', 'right']}>
       <AppText variant="h1" color="primary">Shopping List Screen</AppText>
     </Container>
   );
