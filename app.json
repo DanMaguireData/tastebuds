@@ -33,6 +33,17 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
+      ],
+      [
+        "expo-font",
+          {
+          "fonts": [
+            "node_modules/@expo-google-fonts/poppins/400Regular",
+            "node_modules/@expo-google-fonts/poppins/500Medium",
+            "node_modules/@expo-google-fonts/poppins/700Bold/Poppins_700Bold.ttf"
+          ]
+        }
+      
       ]
     ],
     "experiments": {
