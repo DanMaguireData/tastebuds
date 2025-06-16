@@ -1,18 +1,33 @@
 import { Tabs } from "expo-router";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { useTheme } from "@/hooks/useTheme";
+import { typography, iconSizes } from "@/constants/theme";
 
 export default function TabLayout() {
+  const { theme } = useTheme();
+
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: "#ffd33d",
+        // Header Styles
         headerStyle: {
-          backgroundColor: "#25292e",
+          backgroundColor: theme.background,
         },
+        headerTitleStyle: {
+          color: theme.textPrimary,
+        },
+        headerTintColor: theme.textPrimary,
         headerShadowVisible: false,
-        headerTintColor: "#fff",
+        // NavBar
+        tabBarActiveTintColor: theme.primary,
+        tabBarInactiveTintColor: theme.textSecondary,
         tabBarStyle: {
-          backgroundColor: "#25292e",
+          backgroundColor: theme.surface,
+          borderTopColor: "transparent",
+        },
+        tabBarLabelStyle: {
+          fontFamily: typography.fontFamily.medium,
+          fontSize: typography.fontSizes.xs,
         },
       }}
     >
@@ -24,7 +39,7 @@ export default function TabLayout() {
             <Ionicons
               name={focused ? "restaurant" : "restaurant-outline"}
               color={color}
-              size={24}
+              size={iconSizes.tabBar}
             />
           ),
         }}
@@ -37,7 +52,7 @@ export default function TabLayout() {
             <Ionicons
               name={focused ? "book" : "book-outline"}
               color={color}
-              size={24}
+              size={iconSizes.tabBar}
             />
           ),
         }}
@@ -50,7 +65,7 @@ export default function TabLayout() {
             <Ionicons
               name={focused ? "bag" : "bag-outline"}
               color={color}
-              size={24}
+              size={iconSizes.tabBar}
             />
           ),
         }}
@@ -63,7 +78,7 @@ export default function TabLayout() {
             <Ionicons
               name={focused ? "person" : "person-outline"}
               color={color}
-              size={24}
+              size={iconSizes.tabBar}
             />
           ),
         }}

@@ -47,9 +47,9 @@ export const typography = {
     xxl: 32,
   },
   fontFamily: {
-    light: "Poppins-Regular",
-    medium: "Poppins-Medium",
-    bold: "Poppins-Bold",
+    light: "Poppins_400Regular",
+    medium: "Poppins_500Medium",
+    bold: "Poppins_700Bold",
   },
   lineHeight: {
     tight: 1.2,
@@ -77,3 +77,7 @@ export const borderRadius = {
   "2xl": 24,
   full: 9999,
 } as const;
+
+export const iconSizes = {
+  tabBar: 24,
+};

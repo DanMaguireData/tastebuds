@@ -1,12 +1,8 @@
 import { Text, View, StyleSheet } from "react-native";
-import { useFonts } from "@expo-google-fonts/poppins/useFonts";
-import { Poppins_700Bold } from "@expo-google-fonts/poppins/700Bold";
 import { useTheme } from "@/hooks/useTheme";
+import { typography } from "@/constants/theme";
 
 export default function ShoppingList() {
-  useFonts({
-    Poppins_700Bold,
-  });
   const { theme } = useTheme();
 
   return (
@@ -27,6 +23,6 @@ const styles = StyleSheet.create({
   },
   text: {
     color: "#fff",
-    fontFamily: "Poppins_700Bold",
+    fontFamily: typography.fontFamily.bold,
   },
 });
