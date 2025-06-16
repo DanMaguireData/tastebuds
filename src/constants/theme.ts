@@ -11,6 +11,14 @@ export type ThemeColors = {
   error: string;
   warning: string;
   info: string;
+  input: {
+    background: string;
+    text: string;
+    placeholder: string;
+    border: string;
+    borderFocused: string;
+    label: string;
+  };
 };
 
 export const darkTheme: ThemeColors = {
@@ -24,6 +32,14 @@ export const darkTheme: ThemeColors = {
   error: "#EF5350",
   warning: "#FFB300",
   info: "#4FC3F7",
+  input: {
+    background: "#1E1E1E",
+    text: "#E0E0E0",
+    placeholder: "#757575",
+    label: "#BDBDBD",
+    border: "rgba(255, 255, 255, 0.3)",
+    borderFocused: "#FF7043",
+  },
 };
 
 export const lightTheme: ThemeColors = {
@@ -37,7 +53,21 @@ export const lightTheme: ThemeColors = {
   error: "#D32F2F",
   warning: "#FFA000",
   info: "#29B6F6",
+  input: {
+    background: "#FFFFFF",
+    text: "#212121",
+    placeholder: "#9E9E9E",
+    label: "#616161",
+    border: "rgba(0, 0, 0, 0.23)",
+    borderFocused: "#BF360C",
+  },
 };
+
+type KeysForStringValues<T> = {
+  [K in keyof T]: T[K] extends string ? K : never;
+}[keyof T];
+
+export type ThemeColorKeys = KeysForStringValues<typeof lightTheme>;
 
 export const typography = {
   fontSizes: {

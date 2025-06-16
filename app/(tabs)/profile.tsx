@@ -1,20 +1,32 @@
-import { StyleSheet } from "react-native";
 import { Container } from "@/components/layout/Container";
 import { AppText } from "@/components/common/AppText";
+import { Spacer } from "@/components/layout/Spacer";
+import { AppButton } from "@/components/common/AppButton";
+import React, { useState } from "react";
+import { useRouter } from "expo-router";
 
 export default function Profile() {
+  const router = useRouter();
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  function handleLogin() {
+    setIsLoading(true);
+    // Simulate API call
+    setTimeout(() => {
+      console.log("Logging out");
+      setIsLoading(false);
+      router.replace("/login");
+    }, 100);
+  }
+
   return (
-    <Container style={styles.container} edges={["bottom", "left", "right"]}>
+    <Container edges={["bottom", "left", "right"]}>
       <AppText variant="h1" color="primary">
         Profile Screen
       </AppText>
+      <Spacer size="xl" />
+      <AppButton title="Logout" onPress={handleLogin} isLoading={isLoading} />
     </Container>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});
