@@ -80,11 +80,6 @@ export default function RecipeBook() {
         isLoading={isLoading}
         isRefreshing={isRefreshing}
         onRefresh={onRefresh}
-        ListHeaderComponent={
-          <>
-            <Spacer size="lg" />
-          </>
-        }
       />
     </Container>
   );
