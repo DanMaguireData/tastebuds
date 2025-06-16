@@ -3,7 +3,6 @@ export {
   lightTheme,
   typography,
   spacing,
-  borderRadius,
 } from "./theme";
 
 // Re-export the TypeScript types
