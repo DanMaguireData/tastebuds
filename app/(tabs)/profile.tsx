@@ -7,7 +7,7 @@ export default function Profile() {
   return (
    <Container style={styles.container}>
          <AppText variant="h1" color="primary">Profile Screen</AppText>
-       </Container>
+      </Container>
   );
 }
 
