@@ -5,7 +5,8 @@ import { AppText } from "@/components/common/AppText";
 
 export default function Home() {
   return (
-    <Container edges={["bottom", "left", "right"]}>
+    <Container>
+      <Spacer size="lg" />
       <AppText variant="h1" color="primary">
         Welcome to My App!
       </AppText>

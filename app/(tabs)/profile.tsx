@@ -23,7 +23,8 @@ export default function Profile() {
   }
 
   return (
-    <Container edges={["bottom", "left", "right"]}>
+    <Container>
+      <Spacer size="lg" />
       <AppText variant="h1" color="primary">
         Profile Screen
       </AppText>

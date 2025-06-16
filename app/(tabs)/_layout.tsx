@@ -10,14 +10,7 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         // Header Styles
-        headerStyle: {
-          backgroundColor: theme.background,
-        },
-        headerTitleStyle: {
-          color: theme.textPrimary,
-        },
-        headerTintColor: theme.textPrimary,
-        headerShadowVisible: false,
+        headerShown: false,
         // NavBar
         tabBarActiveTintColor: theme.primary,
         tabBarInactiveTintColor: theme.textSecondary,

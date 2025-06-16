@@ -69,7 +69,8 @@ export default function RecipeBook() {
   }, [fetchRecipes]);
 
   return (
-    <Container edges={["bottom", "left", "right"]}>
+    <Container>
+      <Spacer size="lg" />
       <AppText variant="h1" color="primary">
         Recipe Book
       </AppText>
