@@ -9,7 +9,7 @@ interface ContainerProps {
   style?: ViewStyle; // Allow custom styles to be passed
   scrollable?: boolean; // Option to make the container scrollable
   disableHorizontalPadding?: boolean; // Option to remove horizontal padding for full-width elements
-   edges?: readonly Edge[]
+  edges?: readonly Edge[];
 }
 
 export function Container({

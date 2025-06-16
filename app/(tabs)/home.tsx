@@ -1,16 +1,11 @@
-import {StyleSheet } from "react-native";
 import { Container } from "@/components/layout/Container";
 import { Card } from "@/components/layout/Card";
 import { Spacer } from "@/components/layout/Spacer";
 import { AppText } from "@/components/common/AppText";
-import { useTheme } from "@/hooks/useTheme";
-
-import { typography } from "@/constants/theme";
 
 export default function Home() {
-  const { theme } = useTheme();
   return (
-    <Container edges={['bottom', 'left', 'right']}>
+    <Container edges={["bottom", "left", "right"]}>
       <AppText variant="h1" color="primary">
         Welcome to My App!
       </AppText>
@@ -34,15 +29,3 @@ export default function Home() {
     </Container>
   );
 }
-
-const styles = StyleSheet.create({
-  title: {
-    fontFamily: typography.fontFamily.bold,
-    fontSize: typography.fontSizes.lg,
-    textAlign: "center",
-  },
-  cardTitle: {
-    fontFamily: typography.fontFamily.bold,
-    fontSize: 18,
-  },
-});

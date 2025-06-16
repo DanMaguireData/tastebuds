@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, StyleSheet, TextProps } from "react-native";
+import { Text, TextProps } from "react-native";
 import { useTheme } from "@/hooks/useTheme";
 import { TextVariant, ThemeColors, textVariants } from "@/constants/theme"; // Import our new type
 

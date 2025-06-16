@@ -2,12 +2,13 @@ import { StyleSheet } from "react-native";
 import { Container } from "@/components/layout/Container";
 import { AppText } from "@/components/common/AppText";
 
-
 export default function Profile() {
   return (
-   <Container style={styles.container} edges={['bottom', 'left', 'right']}>
-         <AppText variant="h1" color="primary">Profile Screen</AppText>
-      </Container>
+    <Container style={styles.container} edges={["bottom", "left", "right"]}>
+      <AppText variant="h1" color="primary">
+        Profile Screen
+      </AppText>
+    </Container>
   );
 }
 
