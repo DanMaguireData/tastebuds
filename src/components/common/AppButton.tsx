@@ -10,7 +10,7 @@ import { AppText } from "./AppText";
 import { useTheme } from "@/hooks/useTheme";
 import { spacing } from "@/constants/theme";
 
-type ButtonVariant = "primary" | "secondary" | "outline";
+type ButtonVariant = "primary" | "secondary" | "outline" | "destructive";
 
 interface AppButtonProps extends PressableProps {
   title: string;
@@ -42,6 +42,10 @@ export function AppButton({
     backgroundColor = theme.secondary;
     borderColor = "transparent";
     textColor = theme.textPrimary;
+  } else if (variant === "destructive") {
+    backgroundColor = theme.error;
+    borderColor = "transparent";
+    textColor = "#FFFFFF";
   }
 
   return (

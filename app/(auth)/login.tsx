@@ -137,7 +137,7 @@ export default function LoginScreen() {
         <Spacer size="sm" />
         <View style={{ flexDirection: "row" }}>
           <AppText variant="body" color="textSecondary">
-            {`Don't have an account?`}
+            {`Don't have an account? `}
           </AppText>
           <TouchableOpacity onPress={() => router.push("/register")}>
             <AppText
