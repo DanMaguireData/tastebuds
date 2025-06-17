@@ -15,6 +15,7 @@
       "@/assets/*": ["./assets/*"],
       "@/contexts/*": ["./src/contexts/*"],
       "@/data/*": ["./src/data/*"],
+      "@/config/*": ["./src/config/*"],
     }
   },
   "include": [
