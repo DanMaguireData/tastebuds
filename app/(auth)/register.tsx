@@ -9,20 +9,19 @@ import {
 import { useRouter } from "expo-router";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useTheme } from "@/hooks/useTheme";
-
 // Reusable Components
 import { Container } from "@/components/layout/Container";
 import { Spacer } from "@/components/layout/Spacer";
 import { AppButton } from "@/components/common/AppButton";
 import { AppText } from "@/components/common/AppText";
 import { FormField } from "@/components/common/FormField";
-
 // Firebase for account creation
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/config/firebase";
-
 // Theme
 import { textVariants, spacing } from "@/constants/theme";
+//Services
+import { createUserProfileDocument } from "@/services/userService";
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PASSWORD_MIN_LENGTH = 8;
@@ -104,11 +103,15 @@ export default function RegisterScreen() {
 
     setIsLoading(true);
     try {
+      // Create User Auth
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
         password,
       );
+
+      //If authentication is successful, create the user profile in Firestore
+      await createUserProfileDocument(userCredential.user);
       console.log("Account created successfully!", userCredential.user.uid);
     } catch (error: any) {
       if (error.code === "auth/email-already-in-use") {
