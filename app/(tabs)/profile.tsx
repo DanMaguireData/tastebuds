@@ -1,34 +1,37 @@
+// Resuable Components
 import { Container } from "@/components/layout/Container";
 import { AppText } from "@/components/common/AppText";
 import { Spacer } from "@/components/layout/Spacer";
 import { AppButton } from "@/components/common/AppButton";
+// React
 import React, { useState } from "react";
-import { useRouter } from "expo-router";
+import { Alert } from "react-native";
+// Hooks
 import { useTheme } from "@/hooks/useTheme";
-import { signOut } from "firebase/auth";
 import { useAuth } from "@/hooks/useAuth";
+// Firebase
+import { signOut } from "firebase/auth";
+import { auth } from "@/config/firebase";
 
 export default function Profile() {
-  const router = useRouter();
-
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoadingLogout, setIsLoadingLogout] = useState(false);
   const { isDark, toggleTheme } = useTheme();
   const { user } = useAuth();
 
-  function handleLogout() {
-    setIsLoading(true);
-    // Simulate API call
-    setTimeout(() => {
-      if (user === undefined) {
-        console.log("Cannot logout, no user");
-        return;
-      } else {
-        signOut(user);
-        setIsLoading(false);
-        router.replace("/login");
-      }
-    }, 100);
-  }
+  const handleLogout = async () => {
+    setIsLoadingLogout(true);
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.error("Error signing out: ", error);
+      Alert.alert(
+        "Logout Failed",
+        "An error occurred while signing out. Please try again.",
+      );
+    } finally {
+      setIsLoadingLogout(false);
+    }
+  };
 
   return (
     <Container>
@@ -48,7 +51,7 @@ export default function Profile() {
           <AppButton
             title="Logout"
             onPress={handleLogout}
-            isLoading={isLoading}
+            isLoading={isLoadingLogout}
           />
         </>
       ) : (

@@ -75,7 +75,6 @@ export default function RegisterScreen() {
     setErrors(newErrors);
   }, [email, password, confirmPassword, touched]);
 
-  // --- NEW: Handler to mark fields as touched when blurred ---
   const handleBlur = (field: "email" | "password" | "confirmPassword") => {
     setTouched((prev) => ({ ...prev, [field]: true }));
   };
@@ -105,9 +104,23 @@ export default function RegisterScreen() {
 
     setIsLoading(true);
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password,
+      );
+      console.log("Account created successfully!", userCredential.user.uid);
     } catch (error: any) {
-      Alert.alert("Registration Failed", error.message);
+      if (error.code === "auth/email-already-in-use") {
+        Alert.alert(
+          "Registration Failed",
+          "This email address is already in use by another account.",
+        );
+      } else if (error.code === "auth/invalid-email") {
+        Alert.alert("Registration Failed", "That email address is invalid!");
+      } else {
+        Alert.alert("Registration Failed", error.message);
+      }
     } finally {
       setIsLoading(false);
     }

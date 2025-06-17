@@ -57,12 +57,25 @@ export default function LoginScreen() {
 
     setIsLoading(true);
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      // onAuthStateChanged in AuthContext will handle the redirect logic.
-      // If you need to force it, uncomment the next line.
-      // router.replace('/(tabs)/home');
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password,
+      );
+      console.log("Logged in successfully!", userCredential.user.uid);
     } catch (error: any) {
-      Alert.alert("Login Failed", error.message);
+      if (
+        error.code === "auth/user-not-found" ||
+        error.code === "auth/wrong-password" ||
+        error.code === "auth/invalid-credential"
+      ) {
+        Alert.alert(
+          "Login Failed",
+          "Invalid email or password. Please try again.",
+        );
+      } else {
+        Alert.alert("Login Failed", error.message);
+      }
     } finally {
       setIsLoading(false);
     }

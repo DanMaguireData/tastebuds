@@ -1,5 +1,6 @@
 import { Stack, SplashScreen } from "expo-router";
 import { useEffect, useState } from "react";
+import { useProtectedRoute } from "@/hooks/useProtectedRoute";
 //Contexts
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { AuthProvider } from "@/contexts/AuthContext";
@@ -11,13 +12,27 @@ import {
   Poppins_400Regular,
   Poppins_500Medium,
 } from "@expo-google-fonts/poppins";
-// Firebase Test
-import { testFirebaseConnection } from "@/services/firebase-test";
+import "@/config/firebase";
 
 interface ConnectionStatus {
   isConnected: boolean | null;
   isLoading: boolean;
   error?: string;
+}
+
+function RootLayoutNav() {
+  // This hook will now handle all auth-based navigation!
+  useProtectedRoute();
+
+  return (
+    <ThemeProvider>
+      <Stack>
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+        <Stack.Screen name="recipes" options={{ headerShown: false }} />
+      </Stack>
+    </ThemeProvider>
+  );
 }
 
 export default function RootLayout() {
@@ -32,7 +47,6 @@ export default function RootLayout() {
     if (fontsLoaded || fontError) {
       try {
         console.log("Checking firebase connection...");
-        testFirebaseConnection();
       } catch (error) {
         console.log("Firebase connection test failed:", error);
       }
@@ -48,14 +62,7 @@ export default function RootLayout() {
 
   return (
     <AuthProvider>
-      <ThemeProvider>
-        <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="login" options={{ headerShown: false }} />
-          <Stack.Screen name="recipes" options={{ headerShown: false }} />
-          <Stack.Screen name="register" options={{ headerShown: false }} />
-        </Stack>
-      </ThemeProvider>
+      <RootLayoutNav />
     </AuthProvider>
   );
 }
