@@ -7,6 +7,7 @@ import { EmptyState } from "./EmptyRecipeList";
 import { Spacer } from "../layout/Spacer";
 import { useTheme } from "@/hooks/useTheme";
 import { spacing } from "@/constants/theme";
+import { useRouter } from "expo-router";
 
 interface RecipeListProps {
   recipes: Recipe[];
@@ -24,10 +25,11 @@ export function RecipeList({
   ListHeaderComponent,
 }: RecipeListProps) {
   const { theme } = useTheme();
+  const router = useRouter();
 
   const handleRecipePress = (recipe: Recipe) => {
     console.log("Pressed recipe:", recipe.title);
-    // router.push(`/recipes/${recipe.id}`);
+    router.push(`/recipes/${recipe.id}`);
   };
 
   const renderHeader = () => {

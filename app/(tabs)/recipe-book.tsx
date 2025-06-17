@@ -4,40 +4,15 @@ import { RecipeList } from "@/components/recipes/RecipeList";
 import { Recipe } from "@/types/recipe";
 import { Spacer } from "@/components/layout/Spacer";
 import { useCallback, useEffect, useState, useMemo } from "react";
+// Mock Data
+import { demoRecipes } from "@/data/recipes";
 
 export default function RecipeBook() {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isRefreshing, setIsRefreshing] = useState(false);
 
-  const mockRecipes: Recipe[] = useMemo(
-    () => [
-      {
-        id: "1",
-        title: "Classic Chicken Tikka Masala",
-        description:
-          "A rich and creamy curry with tender, marinated chicken pieces.",
-        cookingTime: 45,
-        imageUrl:
-          "https://www.recipetineats.com/tachyon/2018/04/Chicken-Tikka-Masala_0.jpg?resize=964%2C1350&zoom=0.67",
-      },
-      {
-        id: "2",
-        title: "One-Pan Lemon Herb Roasted Salmon & Asparagus",
-        description:
-          "A healthy and incredibly fast weeknight dinner that cleans up in a flash.",
-        cookingTime: 20,
-      },
-      {
-        id: "3",
-        title: "Ultimate Fudgy Chocolate Brownies",
-        description:
-          "The perfect brownie: dense, chewy, and loaded with chocolate flavor.",
-        cookingTime: 60,
-      },
-    ],
-    [],
-  );
+  const mockRecipes: Recipe[] = useMemo(() => demoRecipes, []);
 
   // Simulate fetching data from an API
   const fetchRecipes = useCallback(async () => {
