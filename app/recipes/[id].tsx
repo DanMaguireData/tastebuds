@@ -13,6 +13,7 @@ import { AppText } from "@/components/common/AppText";
 import { Spacer } from "@/components/layout/Spacer";
 import { Container } from "@/components/layout/Container";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { FloatingBackButton } from "@/components/common/FloatingBackButton";
 // Mock Data
 import { demoRecipes } from "@/data/recipes";
 
@@ -55,11 +56,17 @@ export default function RecipeDetailScreen() {
   return (
     <>
       {/* 1. Set the dynamic header title */}
-      <Stack.Screen
-        options={{ headerShown: false, navigationBarHidden: true }}
-      />
+      <Stack.Screen options={{ title: recipe.title }} />
 
-      <ScrollView showsVerticalScrollIndicator={false}>
+      <FloatingBackButton />
+
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        bounces={false}
+        overScrollMode="never"
+        contentContainerStyle={{ flexGrow: 1 }}
+        style={{ backgroundColor: theme.background }}
+      >
         {/* 2. Image */}
         {showImage ? (
           <ImageBackground

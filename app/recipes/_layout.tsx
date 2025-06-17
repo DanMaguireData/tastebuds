@@ -7,16 +7,7 @@ export default function RecipeStackLayout() {
   return (
     <Stack
       screenOptions={{
-        // headerStyle: {
-        //   backgroundColor: theme.background,
-        // },
-        // headerTintColor: theme.primary,
-        // headerTitleStyle: {
-        //   color: theme.textPrimary,
-        // },
-        // headerBackButtonMenuEnabled: false
         headerShown: false,
-        navigationBarHidden: true,
       }}
     />
   );

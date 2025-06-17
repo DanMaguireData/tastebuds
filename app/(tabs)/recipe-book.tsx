@@ -21,7 +21,7 @@ export default function RecipeBook() {
       setTimeout(() => {
         // To test the empty state, change `mockRecipes` to `[]`
         resolve(mockRecipes);
-      }, 2000); // 2-second delay to see the loading skeleton
+      }, 500); // 500ms delay to see the loading skeleton
     });
   }, [mockRecipes]);
 
