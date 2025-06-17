@@ -10,6 +10,7 @@ export type ThemeColors = {
   success: string;
   error: string;
   warning: string;
+  textHint: string;
   info: string;
   skeleton: string;
   input: {
@@ -32,6 +33,7 @@ export const darkTheme: ThemeColors = {
   textSecondary: "#BDBDBD",
   success: "#66BB6A",
   error: "#EF5350",
+  textHint: "#9E9E9E",
   warning: "#FFB300",
   info: "#4FC3F7",
   input: {
@@ -51,6 +53,7 @@ export const lightTheme: ThemeColors = {
   surface: "#FFFFFF",
   textPrimary: "#212121",
   textSecondary: "#616161",
+  textHint: "#757575",
   skeleton: "#E0E0E0",
   success: "#4CAF50",
   error: "#D32F2F",

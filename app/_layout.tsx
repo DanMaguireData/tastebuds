@@ -27,10 +27,6 @@ export default function RootLayout() {
     Poppins_400Regular,
     Poppins_500Medium,
   });
-  const [status, setStatus] = useState<ConnectionStatus>({
-    isConnected: null,
-    isLoading: true,
-  });
 
   useEffect(() => {
     if (fontsLoaded || fontError) {
@@ -57,6 +53,7 @@ export default function RootLayout() {
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
           <Stack.Screen name="login" options={{ headerShown: false }} />
           <Stack.Screen name="recipes" options={{ headerShown: false }} />
+          <Stack.Screen name="register" options={{ headerShown: false }} />
         </Stack>
       </ThemeProvider>
     </AuthProvider>
