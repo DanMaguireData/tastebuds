@@ -1,6 +1,9 @@
 import { Stack, SplashScreen } from "expo-router";
-import { ThemeProvider } from "@/contexts/ThemeContext";
 import { useEffect, useState } from "react";
+//Contexts
+import { ThemeProvider } from "@/contexts/ThemeContext";
+import { AuthProvider } from "@/contexts/AuthContext";
+
 // Fonts
 import { useFonts } from "@expo-google-fonts/poppins/useFonts";
 import { Poppins_700Bold } from "@expo-google-fonts/poppins/700Bold";
@@ -8,6 +11,7 @@ import {
   Poppins_400Regular,
   Poppins_500Medium,
 } from "@expo-google-fonts/poppins";
+// Firebase Test
 import { testFirebaseConnection } from "@/services/firebase-test";
 
 interface ConnectionStatus {
@@ -47,12 +51,14 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="login" options={{ headerShown: false }} />
-        <Stack.Screen name="recipes" options={{ headerShown: false }} />
-      </Stack>
-    </ThemeProvider>
+    <AuthProvider>
+      <ThemeProvider>
+        <Stack>
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="login" options={{ headerShown: false }} />
+          <Stack.Screen name="recipes" options={{ headerShown: false }} />
+        </Stack>
+      </ThemeProvider>
+    </AuthProvider>
   );
 }

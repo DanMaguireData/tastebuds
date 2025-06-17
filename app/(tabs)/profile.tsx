@@ -5,20 +5,28 @@ import { AppButton } from "@/components/common/AppButton";
 import React, { useState } from "react";
 import { useRouter } from "expo-router";
 import { useTheme } from "@/hooks/useTheme";
+import { signOut } from "firebase/auth";
+import { useAuth } from "@/hooks/useAuth";
 
 export default function Profile() {
   const router = useRouter();
 
   const [isLoading, setIsLoading] = useState(false);
   const { isDark, toggleTheme } = useTheme();
+  const { user } = useAuth();
 
-  function handleLogin() {
+  function handleLogout() {
     setIsLoading(true);
     // Simulate API call
     setTimeout(() => {
-      console.log("Logging out");
-      setIsLoading(false);
-      router.replace("/login");
+      if (user === undefined) {
+        console.log("Cannot logout, no user");
+        return;
+      } else {
+        signOut(user);
+        setIsLoading(false);
+        router.replace("/login");
+      }
     }, 100);
   }
 
@@ -29,7 +37,25 @@ export default function Profile() {
         Profile Screen
       </AppText>
       <Spacer size="xl" />
-      <AppButton title="Logout" onPress={handleLogin} isLoading={isLoading} />
+      {user ? (
+        <>
+          <AppText variant="body" color="textSecondary">
+            Welcome, {user.email || "User"}!
+          </AppText>
+          <AppText variant="caption" color="textSecondary">
+            User ID: {user.uid}
+          </AppText>
+          <AppButton
+            title="Logout"
+            onPress={handleLogout}
+            isLoading={isLoading}
+          />
+        </>
+      ) : (
+        <AppText variant="h2" color="textSecondary">
+          Not Logged In
+        </AppText>
+      )}
       <Spacer size="xl" />
       <AppButton
         title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
