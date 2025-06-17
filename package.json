@@ -60,8 +60,12 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
+      "echo \"🚀 Running Pre-Commit Hooks...\"",
+      "echo \"✨ Running Prettier...\"",
       "prettier --write",
-      "npx expo lint --fix"
+      "echo \"🔍 Running Expo Lint...\"",
+      "npx expo lint --fix",
+      "echo \"✅ Pre-Commit Checks Complete!\""
     ]
   },
   "private": true
