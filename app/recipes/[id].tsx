@@ -107,7 +107,7 @@ export default function RecipeDetailScreen() {
               />
               <Spacer horizontal size="sm" />
               <AppText variant="body" color="textSecondary">
-                {recipe.cookingTime} min
+                {recipe.cookTimeMinutes} min
               </AppText>
             </View>
             <View style={styles.utilityItem}>

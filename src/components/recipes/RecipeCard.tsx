@@ -86,7 +86,7 @@ export function RecipeCard({ recipe, onPress }: RecipeCardProps) {
           />
           <Spacer horizontal size="xs" />
           <AppText variant="caption" color="textSecondary">
-            {recipe.cookingTime} min
+            {recipe.cookTimeMinutes} min
           </AppText>
         </View>
       </View>
