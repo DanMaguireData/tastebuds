@@ -7,6 +7,7 @@ import { ProfileInfoSkeleton } from "@/components/profile/ProfileInfoSkeleton";
 import { Card } from "@/components/layout/Card";
 import { ListItem } from "@/components/common/ListItem";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { DisplayPill } from "@/components/common/DisplayPill";
 // React
 import React, { useState } from "react";
 import {
@@ -19,6 +20,7 @@ import {
 // Hooks
 import { useTheme } from "@/hooks/useTheme";
 import { useAuth } from "@/hooks/useAuth";
+import { useRouter } from "expo-router";
 // Firebase
 import { signOut } from "firebase/auth";
 import { auth } from "@/config/firebase";
@@ -26,11 +28,13 @@ import { auth } from "@/config/firebase";
 import { textVariants, spacing } from "@/constants/theme";
 
 export default function Profile() {
+  //State
   const [isLoadingLogout, setIsLoadingLogout] = useState(false);
-  const { isDark, toggleTheme } = useTheme();
-  const { user, isLoading } = useAuth();
 
-  const { theme } = useTheme();
+  // Hooks
+  const { isDark, toggleTheme, theme } = useTheme();
+  const { user, isLoading } = useAuth();
+  const router = useRouter();
 
   const confirmSignOut = () => {
     Alert.alert(
@@ -66,8 +70,7 @@ export default function Profile() {
   };
 
   const handleEditProfile = () => {
-    // For now, it just logs a message. Later it will navigate to an edit screen.
-    console.log("Navigate to Edit Profile Screen");
+    router.push("/profile/edit");
   };
 
   const renderContent = () => {
@@ -78,10 +81,13 @@ export default function Profile() {
 
     // 2. Handle Logged In State
     if (user) {
+      const hasPreferences =
+        user.dietaryPreferences && user.dietaryPreferences.length > 0;
       return (
         <Card>
           <View style={styles.cardHeader}>
-            <View>
+            <View style={styles.cardContent}>
+              {/* --- Email Section --- */}
               <AppText variant="caption" color="textSecondary">
                 Email
               </AppText>
@@ -92,7 +98,43 @@ export default function Profile() {
               >
                 {user.email}
               </AppText>
+              <Spacer size="md" />
+
+              {/* --- Name Section --- */}
+              <AppText variant="caption" color="textSecondary">
+                Name
+              </AppText>
+              <Spacer size="xs" />
+              <AppText
+                variant="body"
+                style={{ fontFamily: textVariants.button.fontFamily }}
+              >
+                {user.name || "Not set"}
+              </AppText>
+              <Spacer size="md" />
+
+              {/* --- 2. Dietary Preferences Section --- */}
+              <AppText variant="caption" color="textSecondary">
+                Dietary Preferences
+              </AppText>
+              <Spacer size="xs" />
+              {hasPreferences ? (
+                <View style={styles.pillsContainer}>
+                  {user.dietaryPreferences?.map((pref) => (
+                    <DisplayPill key={pref} text={pref} />
+                  ))}
+                </View>
+              ) : (
+                <AppText
+                  variant="body"
+                  color="textSecondary"
+                  style={{ fontStyle: "italic" }}
+                >
+                  None selected
+                </AppText>
+              )}
             </View>
+
             <TouchableOpacity
               onPress={handleEditProfile}
               style={styles.editButton}
@@ -166,5 +208,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+  },
+  cardContent: {
+    flex: 1,
+  },
+  pillsContainer: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    marginTop: spacing.xs,
   },
 });

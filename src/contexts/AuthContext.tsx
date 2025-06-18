@@ -2,11 +2,15 @@ import React, { createContext, useState, useEffect, ReactNode } from "react";
 import { onAuthStateChanged, User as FirebaseAuthUser } from "firebase/auth";
 import { auth } from "@/config/firebase";
 import { UserProfile } from "@/types/user";
-import { getUserProfile } from "@/services/userService";
+import {
+  getUserProfile,
+  updateUserProfile as updateProfileInFirestore,
+} from "@/services/userService";
 
 interface AuthContextType {
   user: UserProfile | null; // The Firebase User object or null if not logged in
   isLoading: boolean; // True while checking the initial auth state
+  updateUserProfile: (data: Partial<UserProfile>) => Promise<void>;
 }
 
 // Create the context with a default undefined value
@@ -60,9 +64,26 @@ export function AuthProvider({ children }: AuthProviderProps) {
     return () => unsubscribe();
   }, []);
 
+  // Fucntion for updating user doc and context state
+  const updateUserProfile = async (data: Partial<UserProfile>) => {
+    if (!user) throw new Error("No user is signed in to update.");
+
+    try {
+      // 1. Update the data in Firestore
+      await updateProfileInFirestore(user.uid, data);
+      // 2. Update the local state in the context
+      setUser((prevUser) => (prevUser ? { ...prevUser, ...data } : null));
+    } catch (error) {
+      console.error("Failed to update user profile in context:", error);
+      // Re-throw the error so the UI component can handle it (e.g., show an alert)
+      throw error;
+    }
+  };
+
   const value = {
     user,
     isLoading,
+    updateUserProfile,
   };
 
   // While loading, we can render nothing or a splash screen/loader.
