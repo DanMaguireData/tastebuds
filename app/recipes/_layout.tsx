@@ -1,4 +1,6 @@
+// React
 import { Stack } from "expo-router";
+// Hooks
 import { useTheme } from "@/hooks/useTheme";
 
 export default function RecipeStackLayout() {

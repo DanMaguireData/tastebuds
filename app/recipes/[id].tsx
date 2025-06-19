@@ -1,4 +1,7 @@
+// React
 import React, { useState } from "react";
+import { Stack, useLocalSearchParams } from "expo-router";
+// Components
 import {
   View,
   ScrollView,
@@ -6,14 +9,15 @@ import {
   ImageBackground,
   ActivityIndicator,
 } from "react-native";
-import { Stack, useLocalSearchParams } from "expo-router";
-import { useTheme } from "@/hooks/useTheme";
-import { ThemeColors, spacing, textVariants } from "@/constants/theme";
 import { AppText } from "@/components/common/AppText";
 import { Spacer } from "@/components/layout/Spacer";
 import { Container } from "@/components/layout/Container";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { FloatingBackButton } from "@/components/common/FloatingBackButton";
+// Theme
+import { ThemeColors, spacing, textVariants } from "@/constants/theme";
+// Hooks
+import { useTheme } from "@/hooks/useTheme";
 // Mock Data
 import { demoRecipes } from "@/data/recipes";
 

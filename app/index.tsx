@@ -1,3 +1,4 @@
+// React
 import { Redirect } from "expo-router";
 
 // This component will automatically redirect any user who lands on the root route ("/")

@@ -1,10 +1,11 @@
+// React
 import { Stack, SplashScreen } from "expo-router";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+// Hooks
 import { useProtectedRoute } from "@/hooks/useProtectedRoute";
 //Contexts
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { AuthProvider } from "@/contexts/AuthContext";
-
 // Fonts
 import { useFonts } from "@expo-google-fonts/poppins/useFonts";
 import { Poppins_700Bold } from "@expo-google-fonts/poppins/700Bold";
@@ -12,13 +13,8 @@ import {
   Poppins_400Regular,
   Poppins_500Medium,
 } from "@expo-google-fonts/poppins";
+// Firebase
 import "@/config/firebase";
-
-interface ConnectionStatus {
-  isConnected: boolean | null;
-  isLoading: boolean;
-  error?: string;
-}
 
 function RootLayoutNav() {
   // This hook will now handle all auth-based navigation!

@@ -1,3 +1,4 @@
+// Components
 import { Container } from "@/components/layout/Container";
 import { AppText } from "@/components/common/AppText";
 import { Spacer } from "@/components/layout/Spacer";

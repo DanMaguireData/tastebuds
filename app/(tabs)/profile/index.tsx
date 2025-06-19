@@ -1,4 +1,4 @@
-// Resuable Components
+// Components
 import { Container } from "@/components/layout/Container";
 import { AppText } from "@/components/common/AppText";
 import { Spacer } from "@/components/layout/Spacer";
@@ -8,8 +8,6 @@ import { Card } from "@/components/layout/Card";
 import { ListItem } from "@/components/common/ListItem";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { DisplayPill } from "@/components/common/DisplayPill";
-// React
-import React, { useState } from "react";
 import {
   Alert,
   View,
@@ -17,6 +15,8 @@ import {
   TouchableOpacity,
   Switch,
 } from "react-native";
+// React
+import React, { useState } from "react";
 // Hooks
 import { useTheme } from "@/hooks/useTheme";
 import { useAuth } from "@/hooks/useAuth";

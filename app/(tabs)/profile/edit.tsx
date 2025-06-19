@@ -1,4 +1,17 @@
+// React
 import React, { useState, useEffect, useMemo } from "react";
+// Hooks
+import { useRouter } from "expo-router";
+import { useTheme } from "@/hooks/useTheme";
+import { useAuth } from "@/hooks/useAuth";
+// Theme
+import { ThemeColors, spacing } from "@/constants/theme";
+// Components
+import { SafeAreaView } from "react-native-safe-area-context";
+import { AppText } from "@/components/common/AppText";
+import { FormField } from "@/components/common/FormField";
+import { SelectablePill } from "@/components/common/SelectablePill";
+import { Spacer } from "@/components/layout/Spacer";
 import {
   View,
   ScrollView,
@@ -7,17 +20,8 @@ import {
   Alert,
   ActivityIndicator,
 } from "react-native";
-import { useRouter } from "expo-router";
-import { useTheme } from "@/hooks/useTheme";
-import { useAuth } from "@/hooks/useAuth";
-import { ThemeColors, spacing } from "@/constants/theme";
-import { SafeAreaView } from "react-native-safe-area-context";
-
-import { AppText } from "@/components/common/AppText";
-import { FormField } from "@/components/common/FormField";
-import { SelectablePill } from "@/components/common/SelectablePill";
-import { Spacer } from "@/components/layout/Spacer";
-import _isEqual from "lodash/isEqual"; // A reliable way to compare arrays/objects
+// Services
+import _isEqual from "lodash/isEqual";
 
 const DIETARY_OPTIONS = [
   "Vegan",

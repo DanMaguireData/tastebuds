@@ -1,4 +1,12 @@
+// React
 import React, { useState, useEffect } from "react";
+// Components
+import { Container } from "@/components/layout/Container";
+import { Spacer } from "@/components/layout/Spacer";
+import { AppButton } from "@/components/common/AppButton";
+import { AppText } from "@/components/common/AppText";
+import { FormField } from "@/components/common/FormField";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import {
   View,
   Pressable,
@@ -6,20 +14,14 @@ import {
   Keyboard,
   Alert,
 } from "react-native";
-import { useRouter } from "expo-router";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { useTheme } from "@/hooks/useTheme";
-// Reusable Components
-import { Container } from "@/components/layout/Container";
-import { Spacer } from "@/components/layout/Spacer";
-import { AppButton } from "@/components/common/AppButton";
-import { AppText } from "@/components/common/AppText";
-import { FormField } from "@/components/common/FormField";
-// Firebase for account creation
+// Firebase
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/config/firebase";
 // Theme
 import { textVariants, spacing } from "@/constants/theme";
+// Hook
+import { useTheme } from "@/hooks/useTheme";
+import { useRouter } from "expo-router";
 //Services
 import { createUserProfileDocument } from "@/services/userService";
 

@@ -1,5 +1,11 @@
+// React
 import React, { useState, useRef } from "react";
+// Hooks
 import { useRouter } from "expo-router";
+import { useTheme } from "@/hooks/useTheme";
+// Theme
+import { spacing, textVariants } from "@/constants/theme";
+// Components
 import {
   View,
   Pressable,
@@ -8,18 +14,16 @@ import {
   Keyboard,
   Alert,
 } from "react-native";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { useTheme } from "@/hooks/useTheme";
-import { spacing, textVariants } from "@/constants/theme";
-// Custom Components
 import { Container } from "@/components/layout/Container";
 import { Spacer } from "@/components/layout/Spacer";
 import { AppButton } from "@/components/common/AppButton";
 import { AppText } from "@/components/common/AppText";
 import { FormField } from "@/components/common/FormField";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 // Firebase
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/config/firebase";
+
 // Simple email validation regex
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 

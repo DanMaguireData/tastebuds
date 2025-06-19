@@ -1,8 +1,10 @@
+// Components
 import { Container } from "@/components/layout/Container";
 import { AppText } from "@/components/common/AppText";
 import { RecipeList } from "@/components/recipes/RecipeList";
 import { Recipe } from "@/types/recipe";
 import { Spacer } from "@/components/layout/Spacer";
+// React
 import { useCallback, useEffect, useState, useMemo } from "react";
 // Mock Data
 import { demoRecipes } from "@/data/recipes";
