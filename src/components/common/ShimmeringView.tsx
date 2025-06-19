@@ -1,3 +1,4 @@
+// Animation
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -5,10 +6,12 @@ import Animated, {
   withRepeat,
   interpolate,
 } from "react-native-reanimated";
+// Components
 import { LinearGradient } from "expo-linear-gradient";
+import { View } from "react-native";
+// Hooks
 import { useTheme } from "@/hooks/useTheme";
 import { useEffect } from "react";
-import { View } from "react-native";
 
 export const ShimmeringView = ({ style }: { style: any }) => {
   const { theme } = useTheme();

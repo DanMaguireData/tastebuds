@@ -1,4 +1,6 @@
+// React
 import React from "react";
+// Components
 import {
   Pressable,
   StyleSheet,
@@ -6,8 +8,10 @@ import {
   ViewStyle,
   PressableProps,
 } from "react-native";
-import { AppText } from "./AppText";
+// Hooks
 import { useTheme } from "@/hooks/useTheme";
+// Theme
+import { AppText } from "./AppText";
 import { spacing } from "@/constants/theme";
 
 type ButtonVariant = "primary" | "secondary" | "outline" | "destructive";

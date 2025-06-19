@@ -1,18 +1,22 @@
+// React
 import React from "react";
+// Components
 import { Text, TextProps } from "react-native";
+// Hooks
 import { useTheme } from "@/hooks/useTheme";
-import { TextVariant, ThemeColorKeys, textVariants } from "@/constants/theme"; // Import our new type
+// Theme
+import { TextVariant, ThemeColorKeys, textVariants } from "@/constants/theme";
 
 interface AppTextProps extends TextProps {
   children: React.ReactNode;
-  variant?: TextVariant; // Use our defined variants
-  color?: ThemeColorKeys; // Allow dynamic color selection
+  variant?: TextVariant;
+  color?: ThemeColorKeys;
 }
 
 export function AppText({
   children,
-  variant = "body", // Default to the 'body' style
-  color = "textPrimary", // Default to the primary text color
+  variant = "body",
+  color = "textPrimary",
   style,
   ...rest
 }: AppTextProps) {

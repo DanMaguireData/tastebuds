@@ -1,13 +1,12 @@
+// React
 import React from "react";
-import {
-  TouchableOpacity,
-  StyleSheet,
-  PressableProps,
-  Pressable,
-} from "react-native";
+// Hooks
 import { useTheme } from "@/hooks/useTheme";
-import { ThemeColors, spacing } from "@/constants/theme";
+// Theme
+import { spacing } from "@/constants/theme";
+// Components
 import { AppText } from "./AppText";
+import { StyleSheet, PressableProps, Pressable } from "react-native";
 
 interface SelectablePillProps extends PressableProps {
   text: string;

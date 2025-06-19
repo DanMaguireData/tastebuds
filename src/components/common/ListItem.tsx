@@ -1,15 +1,17 @@
+// React
 import React from "react";
+// Components
 import {
   View,
   TouchableOpacity,
   StyleSheet,
-  PressableProps,
+  TouchableOpacityProps,
 } from "react-native";
-import { useTheme } from "@/hooks/useTheme";
-import { spacing } from "@/constants/theme";
 import { AppText } from "./AppText";
+// Theme
+import { spacing } from "@/constants/theme";
 
-interface ListItemProps extends PressableProps {
+interface ListItemProps extends TouchableOpacityProps {
   text: string;
   rightContent?: React.ReactNode;
 }

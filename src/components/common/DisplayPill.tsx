@@ -1,8 +1,12 @@
+// React
 import React from "react";
+// Components
 import { View, StyleSheet, ViewProps } from "react-native";
-import { useTheme } from "@/hooks/useTheme";
-import { spacing, ThemeColors, textVariants } from "@/constants/theme";
 import { AppText } from "./AppText";
+// Hooks
+import { useTheme } from "@/hooks/useTheme";
+// Theme
+import { spacing, ThemeColors, textVariants } from "@/constants/theme";
 
 interface DisplayPillProps extends ViewProps {
   text: string;

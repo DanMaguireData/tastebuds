@@ -1,10 +1,14 @@
+// React
 import React from "react";
+// Components
 import { Pressable, StyleSheet } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+// Hooks
 import { useRouter } from "expo-router";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { spacing } from "@/constants/theme";
 import { useTheme } from "@/hooks/useTheme";
+// Theme
+import { spacing } from "@/constants/theme";
 
 export function FloatingBackButton() {
   const router = useRouter();

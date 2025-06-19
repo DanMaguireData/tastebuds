@@ -1,4 +1,6 @@
+// React
 import React, { useState } from "react";
+// Components
 import {
   View,
   TextInput,
@@ -6,10 +8,12 @@ import {
   TextInputProps,
   ViewStyle,
 } from "react-native";
-import { useTheme } from "@/hooks/useTheme";
-import { ThemeColors, spacing, textVariants } from "@/constants/theme";
 import { AppText } from "./AppText";
 import { Spacer } from "../layout/Spacer";
+// Hooks
+import { useTheme } from "@/hooks/useTheme";
+// Theme
+import { ThemeColors, spacing, textVariants } from "@/constants/theme";
 
 interface FormFieldProps extends TextInputProps {
   label: string;

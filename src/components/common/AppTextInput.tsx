@@ -1,4 +1,6 @@
+// React
 import React, { useState } from "react";
+// Components
 import {
   TextInput,
   StyleSheet,
@@ -6,7 +8,9 @@ import {
   TextInputProps,
   ViewStyle,
 } from "react-native";
+// Hooks
 import { useTheme } from "@/hooks/useTheme";
+// Theme
 import { spacing, textVariants } from "@/constants/theme";
 
 interface AppTextInputProps extends TextInputProps {
