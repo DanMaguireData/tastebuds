@@ -1,16 +1,20 @@
+// React
 import React, { useState } from "react";
+// Components
 import {
   View,
   StyleSheet,
   Pressable,
-  ImageBackground, // Import ImageBackground
+  ImageBackground,
   ActivityIndicator,
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { useTheme } from "@/hooks/useTheme";
 import { AppText } from "../common/AppText";
 import { Spacer } from "../layout/Spacer";
 import { Recipe } from "@/types/recipe";
+// Hooks
+import { useTheme } from "@/hooks/useTheme";
+// Theme
 import { ThemeColors, spacing } from "@/constants/theme";
 
 interface RecipeCardProps {

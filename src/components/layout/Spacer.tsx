@@ -1,5 +1,8 @@
+// React
 import React from "react";
+// Components
 import { View, ViewStyle } from "react-native";
+// Theme
 import { spacing } from "../../constants";
 
 type SpacerSize = keyof typeof spacing;

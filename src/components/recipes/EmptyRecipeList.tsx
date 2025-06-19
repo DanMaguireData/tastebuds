@@ -1,10 +1,14 @@
+// React
 import React from "react";
+// Components
 import { View, StyleSheet } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { useTheme } from "@/hooks/useTheme";
 import { AppText } from "@/components/common//AppText";
 import { AppButton } from "@/components/common/AppButton";
 import { Spacer } from "../layout/Spacer";
+// Hooks
+import { useTheme } from "@/hooks/useTheme";
+// Theme
 import { spacing } from "@/constants/theme";
 
 export function EmptyState() {

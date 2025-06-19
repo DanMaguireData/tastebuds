@@ -1,7 +1,10 @@
+// Theme
 import React from "react";
+// Components
 import { Card } from "@/components/layout/Card";
 import { Spacer } from "@/components/layout/Spacer";
-import { ShimmeringView } from "@/components/common/ShimmeringView"; // Assuming you create this reusable component
+import { ShimmeringView } from "@/components/common/ShimmeringView";
+// Hooks
 import { useTheme } from "@/hooks/useTheme";
 
 export function ProfileInfoSkeleton() {

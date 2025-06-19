@@ -1,6 +1,10 @@
+// React
 import React from "react";
+// Components
 import { View, ViewStyle } from "react-native";
+// Hooks
 import { useTheme } from "@/hooks/useTheme";
+// Theme
 import { spacing } from "@/constants/theme";
 
 interface CardProps {

@@ -1,8 +1,12 @@
-import React, { useEffect } from "react";
+// React
+import React from "react";
+// Components
 import { View, StyleSheet } from "react-native";
-import { useTheme } from "@/hooks/useTheme";
-import { ThemeColors, spacing } from "@/constants/theme";
 import { ShimmeringView } from "../common/ShimmeringView";
+// Hooks
+import { useTheme } from "@/hooks/useTheme";
+// Theme
+import { ThemeColors, spacing } from "@/constants/theme";
 
 export function RecipeCardSkeleton() {
   const { theme } = useTheme();

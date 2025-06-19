@@ -1,7 +1,11 @@
+// React
 import React from "react";
+// Components
 import { View, StyleSheet, ViewStyle, ScrollView } from "react-native";
 import { SafeAreaView, Edge } from "react-native-safe-area-context";
+// Hooks
 import { useTheme } from "@/hooks/useTheme";
+// Theme
 import { spacing } from "@/constants/theme";
 
 interface ContainerProps {

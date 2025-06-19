@@ -1,13 +1,18 @@
+// React
 import React from "react";
+// Components
 import { FlatList, View, RefreshControl } from "react-native";
-import { Recipe } from "@/types/recipe";
 import { RecipeCard } from "./RecipeCard";
 import { RecipeCardSkeleton } from "./RecipeCardSkeleton";
 import { EmptyState } from "./EmptyRecipeList";
 import { Spacer } from "../layout/Spacer";
+// Types
+import { Recipe } from "@/types/recipe";
+// Hooks
 import { useTheme } from "@/hooks/useTheme";
-import { spacing } from "@/constants/theme";
 import { useRouter } from "expo-router";
+// Theme
+import { spacing } from "@/constants/theme";
 
 interface RecipeListProps {
   recipes: Recipe[];
