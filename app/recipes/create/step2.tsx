@@ -7,6 +7,7 @@ import { AppButton } from "@/components/common/AppButton";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import BottomSheet from "@gorhom/bottom-sheet";
 import { UnitSelectorModal } from "@/components/recipes/UnitSelectorModal";
+import { ProgressStepper } from "@/components/recipes/ProgressStepper";
 // React
 import React, { useRef, useState } from "react";
 // Hooks
@@ -73,6 +74,7 @@ export default function Step2() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <View style={styles.fullScreenContainer}>
+        <ProgressStepper currentStep={2} />
         <View style={styles.contentContainer}>
           <ScrollView>
             {/* --- 1. Add Column Headers --- */}

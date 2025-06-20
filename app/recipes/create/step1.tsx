@@ -11,6 +11,7 @@ import { AppText } from "@/components/common/AppText";
 import { Spacer } from "@/components/layout/Spacer";
 import { FormField } from "@/components/common/FormField";
 import { AppButton } from "@/components/common/AppButton";
+import { ProgressStepper } from "@/components/recipes/ProgressStepper";
 // Hooks
 import { useRouter } from "expo-router";
 import { useCreateRecipe } from "@/hooks/useCreateRecipe";
@@ -52,69 +53,75 @@ export default function Step1() {
   };
 
   return (
-    <ScrollView style={styles.container} contentContainerStyle={styles.content}>
-      <TouchableOpacity style={styles.imagePicker} onPress={pickImage}>
-        {image ? (
-          <Image source={{ uri: image.uri }} style={styles.image} />
-        ) : (
-          <>
-            <MaterialCommunityIcons
-              name="camera-plus-outline"
-              size={40}
-              color={theme.textSecondary}
-            />
-            <AppText color="textSecondary">Add a Photo</AppText>
-          </>
-        )}
-      </TouchableOpacity>
-      <Spacer size="lg" />
-      <FormField
-        label="Recipe Name"
-        value={title}
-        onChangeText={setTitle}
-        placeholder="e.g., Grandma's Lasagna"
-      />
-      <Spacer size="md" />
-      <FormField
-        label="Description"
-        value={description}
-        onChangeText={setDescription}
-        multiline
-        placeholder="A short story about this recipe."
-      />
-      <Spacer size="lg" />
-      <View style={styles.statsContainer}>
+    <View style={{ flex: 1 }}>
+      <ProgressStepper currentStep={1} />
+      <ScrollView
+        style={styles.container}
+        contentContainerStyle={styles.content}
+      >
+        <TouchableOpacity style={styles.imagePicker} onPress={pickImage}>
+          {image ? (
+            <Image source={{ uri: image.uri }} style={styles.image} />
+          ) : (
+            <>
+              <MaterialCommunityIcons
+                name="camera-plus-outline"
+                size={40}
+                color={theme.textSecondary}
+              />
+              <AppText color="textSecondary">Add a Photo</AppText>
+            </>
+          )}
+        </TouchableOpacity>
+        <Spacer size="lg" />
         <FormField
-          containerStyle={{ flex: 1 }}
-          label="Servings"
-          value={servings}
-          onChangeText={setServings}
-          keyboardType="numeric"
+          label="Recipe Name"
+          value={title}
+          onChangeText={setTitle}
+          placeholder="e.g., Grandma's Lasagna"
         />
-        <Spacer horizontal size="md" />
+        <Spacer size="md" />
         <FormField
-          containerStyle={{ flex: 1 }}
-          label="Prep Time (min)"
-          value={prepTime}
-          onChangeText={setPrepTime}
-          keyboardType="numeric"
+          label="Description"
+          value={description}
+          onChangeText={setDescription}
+          multiline
+          placeholder="A short story about this recipe."
         />
-        <Spacer horizontal size="md" />
-        <FormField
-          containerStyle={{ flex: 1 }}
-          label="Cook Time (min)"
-          value={cookTime}
-          onChangeText={setCookTime}
-          keyboardType="numeric"
+        <Spacer size="lg" />
+        <View style={styles.statsContainer}>
+          <FormField
+            containerStyle={{ flex: 1 }}
+            label="Servings"
+            value={servings}
+            onChangeText={setServings}
+            keyboardType="numeric"
+          />
+          <Spacer horizontal size="md" />
+          <FormField
+            containerStyle={{ flex: 1 }}
+            label="Prep Time (min)"
+            value={prepTime}
+            onChangeText={setPrepTime}
+            keyboardType="numeric"
+          />
+          <Spacer horizontal size="md" />
+          <FormField
+            containerStyle={{ flex: 1 }}
+            label="Cook Time (min)"
+            value={cookTime}
+            onChangeText={setCookTime}
+            keyboardType="numeric"
+          />
+        </View>
+        <Spacer size="xl" />
+        <AppButton
+          title="Next: Ingredients"
+          onPress={() => router.push("/recipes/create/step2")}
+          disabled={!title}
         />
-      </View>
-      <Spacer size="xl" />
-      <AppButton
-        title="Next: Ingredients"
-        onPress={() => router.push("/recipes/create/step2")}
-        disabled={!title}
-      />
-    </ScrollView>
+      </ScrollView>
+    </View>
   );
 }
 

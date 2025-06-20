@@ -15,6 +15,7 @@ import { AppButton } from "@/components/common/AppButton";
 import { Spacer } from "@/components/layout/Spacer";
 import { AppText } from "@/components/common/AppText";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { ProgressStepper } from "@/components/recipes/ProgressStepper";
 // Hooks
 import { useRouter } from "expo-router";
 import { useCreateRecipe } from "@/hooks/useCreateRecipe";
@@ -83,6 +84,7 @@ export default function Step3() {
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
+      <ProgressStepper currentStep={3} />
       <View style={styles.container}>
         <DraggableFlatList
           data={instructions}
