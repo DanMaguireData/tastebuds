@@ -21,6 +21,8 @@ interface FormFieldProps extends TextInputProps {
   helperText?: string;
   containerStyle?: ViewStyle;
   rightIcon?: React.ReactNode;
+  mandatoryField?: boolean;
+  inputHeight?: number;
 }
 
 export const FormField = React.forwardRef<TextInput, FormFieldProps>(
@@ -32,7 +34,9 @@ export const FormField = React.forwardRef<TextInput, FormFieldProps>(
       helperText,
       onFocus,
       onBlur,
+      mandatoryField,
       rightIcon,
+      inputHeight,
       style,
       ...rest
     },
@@ -58,11 +62,20 @@ export const FormField = React.forwardRef<TextInput, FormFieldProps>(
         ? theme.input.borderFocused
         : theme.input.border;
 
+    const actualInputHeight = !inputHeight ? 50 : inputHeight;
+
     return (
       <View style={containerStyle}>
-        <AppText variant="caption" color="textSecondary" style={styles.label}>
-          {label}
-        </AppText>
+        <View style={styles.labelContainer}>
+          <AppText variant="caption" color="textSecondary">
+            {label}
+          </AppText>
+          {mandatoryField && (
+            <AppText variant="caption" color="error">
+              *
+            </AppText>
+          )}
+        </View>
         <Spacer size="xs" />
 
         {helperText && (
@@ -73,7 +86,12 @@ export const FormField = React.forwardRef<TextInput, FormFieldProps>(
             <Spacer size="xs" />
           </>
         )}
-        <View style={[styles.inputContainer, { borderColor }]}>
+        <View
+          style={[
+            styles.inputContainer,
+            { borderColor: borderColor, height: actualInputHeight },
+          ]}
+        >
           <TextInput
             style={[styles.input, style]}
             placeholderTextColor={theme.input.placeholder}
@@ -101,8 +119,9 @@ FormField.displayName = "FormField";
 
 const createStyles = (theme: ThemeColors) =>
   StyleSheet.create({
-    label: {
-      // You might want a specific 'label' color in your theme
+    labelContainer: {
+      flexDirection: "row",
+      alignItems: "center",
     },
     inputContainer: {
       flexDirection: "row",
@@ -110,7 +129,6 @@ const createStyles = (theme: ThemeColors) =>
       backgroundColor: theme.input.background,
       borderRadius: spacing.sm,
       borderWidth: 1.5,
-      height: 50,
     },
     input: {
       flex: 1,

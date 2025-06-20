@@ -1,11 +1,10 @@
 // React
-import { Stack, useRouter, useSegments } from "expo-router";
+import { Stack, useRouter } from "expo-router";
 // Context
 import { CreateRecipeProvider } from "@/contexts/CreateRecipeContext";
 // Components
-import { TouchableOpacity, View } from "react-native";
+import { TouchableOpacity, Alert } from "react-native";
 import { AppText } from "@/components/common/AppText";
-import { ProgressStepper } from "@/components/recipes/ProgressStepper";
 // Hooks
 import { useTheme } from "@/hooks/useTheme";
 // Theme
@@ -17,13 +16,25 @@ export default function CreateRecipeLayout() {
   const router = useRouter();
   const { theme } = useTheme();
 
-  // useSegments() gives us the current route parts, e.g., ['(create)', 'step1']
-  const segments = useSegments();
-
-  // Determine the current step number from the route segment
-  const currentStep = parseInt(
-    segments[segments.length - 1]?.replace("step", "") || "1",
-  );
+  const handleCancelPress = () => {
+    Alert.alert(
+      "Discard Recipe?", // Title
+      "Are you sure you want to exit? All progress will be lost.", // Message
+      [
+        // Button Array
+        {
+          text: "Keep Editing",
+          onPress: () => console.log("User canceled the discard action."),
+          style: "cancel", // The "cancel" style is important for behavior on iOS and Android
+        },
+        {
+          text: "Discard",
+          onPress: () => router.push("/(tabs)/recipe-book"), // Only navigate back if the user confirms
+          style: "destructive", // This styles the button appropriately (e.g., red text on iOS)
+        },
+      ],
+    );
+  };
 
   return (
     <CreateRecipeProvider>
@@ -32,22 +43,10 @@ export default function CreateRecipeLayout() {
           headerStyle: { backgroundColor: theme.background },
           headerTitleStyle: { color: theme.textPrimary },
           headerLeft: () => (
-            <TouchableOpacity onPress={() => router.back()}>
+            <TouchableOpacity onPress={handleCancelPress}>
               <AppText color="textSecondary">Cancel</AppText>
             </TouchableOpacity>
           ),
-          //   header: ({ options }) => (
-          //     <View style={{ backgroundColor: theme.surface }}>
-          //       {/* This is the standard header part */}
-          //       <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', padding: spacing.md, backgroundColor: theme.background }}>
-          //         <AppText variant='h3'>{options.title}</AppText>
-          //         {/* We reserve space for a right button, even if empty, for alignment */}
-          //         <View style={{ width: 60 }}></View>
-          //       </View>
-          //       {/* Our new stepper component rendered below */}
-          //       <ProgressStepper currentStep={currentStep} />
-          //     </View>
-          //   ),
         }}
       >
         <Stack.Screen

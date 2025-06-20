@@ -1,8 +1,12 @@
+// React
 import React from "react";
+// Components
 import { View, StyleSheet } from "react-native";
-import { useTheme } from "@/hooks/useTheme";
-import { ThemeColors, spacing } from "@/constants/theme";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+// Hooks
+import { useTheme } from "@/hooks/useTheme";
+// Theme
+import { ThemeColors, spacing } from "@/constants/theme";
 
 type StepStatus = "completed" | "active" | "upcoming";
 

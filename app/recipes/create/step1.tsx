@@ -52,6 +52,15 @@ export default function Step1() {
     }
   };
 
+  const isFormValid = () => {
+    return (
+      title.trim() !== "" &&
+      servings.trim() !== "" &&
+      prepTime.trim() !== "" &&
+      cookTime.trim() !== ""
+    );
+  };
+
   return (
     <View style={{ flex: 1 }}>
       <ProgressStepper currentStep={1} />
@@ -79,6 +88,7 @@ export default function Step1() {
           value={title}
           onChangeText={setTitle}
           placeholder="e.g., Grandma's Lasagna"
+          mandatoryField={true}
         />
         <Spacer size="md" />
         <FormField
@@ -87,6 +97,7 @@ export default function Step1() {
           onChangeText={setDescription}
           multiline
           placeholder="A short story about this recipe."
+          inputHeight={100}
         />
         <Spacer size="lg" />
         <View style={styles.statsContainer}>
@@ -96,29 +107,35 @@ export default function Step1() {
             value={servings}
             onChangeText={setServings}
             keyboardType="numeric"
+            placeholder="e.g. 4"
+            mandatoryField={true}
           />
           <Spacer horizontal size="md" />
           <FormField
             containerStyle={{ flex: 1 }}
-            label="Prep Time (min)"
+            label="Prep Minutes"
             value={prepTime}
             onChangeText={setPrepTime}
             keyboardType="numeric"
+            placeholder="e.g., 15"
+            mandatoryField={true}
           />
           <Spacer horizontal size="md" />
           <FormField
             containerStyle={{ flex: 1 }}
-            label="Cook Time (min)"
+            label="Cook Minutes"
             value={cookTime}
             onChangeText={setCookTime}
             keyboardType="numeric"
+            mandatoryField={true}
+            placeholder="e.g., 45"
           />
         </View>
         <Spacer size="xl" />
         <AppButton
           title="Next: Ingredients"
           onPress={() => router.push("/recipes/create/step2")}
-          disabled={!title}
+          disabled={!isFormValid()}
         />
       </ScrollView>
     </View>

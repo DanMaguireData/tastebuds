@@ -34,9 +34,9 @@ export function CreateRecipeProvider({ children }: { children: ReactNode }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState<ImagePickerAsset | null>(null);
-  const [servings, setServings] = useState("4");
-  const [prepTime, setPrepTime] = useState("15");
-  const [cookTime, setCookTime] = useState("45");
+  const [servings, setServings] = useState("");
+  const [prepTime, setPrepTime] = useState("");
+  const [cookTime, setCookTime] = useState("");
   const [ingredients, setIngredients] = useState<
     (Ingredient & { id: string })[]
   >([]);
