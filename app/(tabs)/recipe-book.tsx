@@ -4,15 +4,22 @@ import { AppText } from "@/components/common/AppText";
 import { RecipeList } from "@/components/recipes/RecipeList";
 import { Recipe } from "@/types/recipe";
 import { Spacer } from "@/components/layout/Spacer";
+import { FAB } from "@/components/common/FAB";
+import { View } from "react-native";
 // React
 import { useCallback, useEffect, useState, useMemo } from "react";
+// Hooks
+import { useRouter } from "expo-router";
 // Mock Data
 import { demoRecipes } from "@/data/recipes";
 
 export default function RecipeBook() {
+  //State
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isRefreshing, setIsRefreshing] = useState(false);
+  // Router
+  const router = useRouter();
 
   const mockRecipes: Recipe[] = useMemo(() => demoRecipes, []);
 
@@ -46,18 +53,21 @@ export default function RecipeBook() {
   }, [fetchRecipes]);
 
   return (
-    <Container edges={["top", "left", "right"]}>
-      <Spacer size="lg" />
-      <AppText variant="h1" color="primary">
-        Recipe Book
-      </AppText>
-      <Spacer size="xl" />
-      <RecipeList
-        recipes={recipes}
-        isLoading={isLoading}
-        isRefreshing={isRefreshing}
-        onRefresh={onRefresh}
-      />
-    </Container>
+    <View style={{ flex: 1 }}>
+      <Container edges={["top", "left", "right"]}>
+        <Spacer size="lg" />
+        <AppText variant="h1" color="primary">
+          Recipe Book
+        </AppText>
+        <Spacer size="xl" />
+        <RecipeList
+          recipes={recipes}
+          isLoading={isLoading}
+          isRefreshing={isRefreshing}
+          onRefresh={onRefresh}
+        />
+      </Container>
+      <FAB onPress={() => router.push("/recipes/create/step1")} />
+    </View>
   );
 }

@@ -4,13 +4,20 @@ import { Stack } from "expo-router";
 import { useTheme } from "@/hooks/useTheme";
 
 export default function RecipeStackLayout() {
-  const { theme } = useTheme();
-
   return (
     <Stack
       screenOptions={{
         headerShown: false,
       }}
-    />
+    >
+      {/* Screen for displayoing recipe */}
+      <Stack.Screen name="[id]" />
+
+      {/** Screen stack for creating recipe */}
+      <Stack.Screen
+        name="create"
+        //options={{ presentation: 'modal'}}
+      />
+    </Stack>
   );
 }

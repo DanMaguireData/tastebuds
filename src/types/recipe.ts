@@ -1,4 +1,5 @@
 import { Timestamp } from "firebase/firestore";
+import { UnitKey } from "@/constants/unit";
 
 export interface Recipe {
   // --- Core Details ---
@@ -36,16 +37,16 @@ export interface Recipe {
   derivedFrom?: string; // recipeId of the original recipe
 
   // To handle future schema refinements
-  _v: 1;
+  _v: number;
 }
 
 export interface Ingredient {
   name: string;
   quantity: number;
-  unit: string;
+  unit: UnitKey;
 
   // Normalised Quantities to make conversions easier
   // down the line
   normalizedQuantity?: number; // e.g., 120
-  normalizedUnit?: string; // e.g., "g"
+  normalizedUnit?: UnitKey; // e.g., "g"
 }
